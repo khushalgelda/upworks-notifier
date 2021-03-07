@@ -1,26 +1,12 @@
-# import os
-# import requests
-# from selenium.webdriver.common.action_chains import ActionChains
+
 from bs4 import BeautifulSoup as soup
 from time import sleep
 from selenium import webdriver
 import datetime
 import time
-from twilio.rest import Client
+from send_whatsapp import send_whatsapp
 
-query_freq_in_mins = 4
-
-
-def send_whatsapp(msg, to_number):
-    account_sid = 'AC7cdfca43c5f8cb4a21201224954179c7'
-    auth_token = 'ffd5b80938868db4169769269d3c9405'
-    client = Client(account_sid, auth_token)
-
-    client.messages.create(
-        from_='whatsapp:+14155238886',
-        body=msg,
-        to='whatsapp:+{}'.format(to_number)
-    )
+query_freq_in_mins = 9
 
 
 def new_posts(old, new):
